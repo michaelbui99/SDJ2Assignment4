@@ -1,5 +1,7 @@
+package kingdom;
+
 /**
- * ArrayList is an implementation of interface ListADT (the interface to a list
+ * ArrayList is an implementation of interface kingdom.ListADT (the interface to a list
  * collection - the abstract data type List). Elements are referenced by
  * contiguous numeric indices. The list allow duplicate elements and
  * <code>null</code> elements.
@@ -9,7 +11,7 @@
  * @author Steffen Vissing Andersen
  * @version 0.1, date: 21/03/2019
  */
-public class ArrayList<T> implements ListADT<T>
+public class ArrayListKingdom<T> implements ListADT<T>
 {
    private int DEFAULT_CAPACITY = 100;
    private T[] list;
@@ -20,7 +22,7 @@ public class ArrayList<T> implements ListADT<T>
     * elements.
     */
    @SuppressWarnings("unchecked")
-   public ArrayList()
+   public ArrayListKingdom()
    {
       list = (T[]) new Object[DEFAULT_CAPACITY];
       size = 0;

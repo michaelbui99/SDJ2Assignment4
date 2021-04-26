@@ -1,5 +1,7 @@
 package kingdom;
 
+import kingdom.gems.Gem;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -44,7 +46,7 @@ public class Catalogue
 
   public void currentWealth()
   {
-    System.out.println("Accountants calculated: "+ TreasureRoom.getwealth() + "in treasureroom");
+    System.out.println("Accountants calculated: "+ TreasureRoom.getwealth() + " in treasureroom");
   }
 
 }

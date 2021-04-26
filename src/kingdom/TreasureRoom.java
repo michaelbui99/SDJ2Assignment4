@@ -1,5 +1,7 @@
 package kingdom;
 
+import kingdom.gems.Gem;
+
 import java.util.ArrayList;
 import java.util.List;
 

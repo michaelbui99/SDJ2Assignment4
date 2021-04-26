@@ -1,5 +1,7 @@
+package kingdom;
+
 /**
- * ListADT defines the interface to a list collection - the abstract data type
+ * kingdom.ListADT defines the interface to a list collection - the abstract data type
  * List. Elements are referenced by contiguous numeric indices. The list should
  * allow duplicate elements and could allow <code>null</code> elements.
  *

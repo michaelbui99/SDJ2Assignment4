@@ -1,7 +1,5 @@
 package kingdom;
 
-import kingdom.Flyweight.Gem;
-
 import java.util.List;
 
 public interface TreasureRoomDoor {

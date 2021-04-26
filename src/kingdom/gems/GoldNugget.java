@@ -2,7 +2,7 @@ package kingdom.gems;
 
 public class GoldNugget extends Gem
 {
-  public GoldNugget(double value, String gemType, String color)
+  public GoldNugget()
   {
   }
 

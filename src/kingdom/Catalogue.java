@@ -31,12 +31,22 @@ public class Catalogue
 
   public void gemDeposit(Gem gem)
   {
-    System.out.println(gem.getGemType() + " is added to the treasure room!!");
+    System.out.println(gem.getGemType() + " is added to the treasure room. Value: +" + gem.getValue());
+  }
+
+  public void waitingForGemDeposit()
+  {
+    System.out.println("Gem transporter is waiting for ");
   }
 
   public void partyTime()
   {
     System.out.println("Kings holds a party");
+  }
+
+  public void addToTreasureRoom(Gem gem)
+  {
+    System.out.println("GemTransporter transported: " + gem.getGemType() + " Value: " + gem.getGemType());
   }
 
   public void partyOver()

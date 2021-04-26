@@ -6,10 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreasureRoom implements TreasureRoomDoor {
-    private List<Gem> gems;
+    private static List<Gem> gems;
 
     public TreasureRoom() {
         gems = new ArrayList<>();
+    }
+
+    public static double getwealth()
+    {
+        double sum = 0;
+        for (Gem gem : gems )
+        {
+            sum += gem.getValue();
+        }
+        return sum;
     }
 
     // access methods

@@ -31,7 +31,7 @@ public class Catalogue
 
   public void gemDeposit(Gem gem)
   {
-    System.out.println(gem.getGemType() + " is added to the treasure room. Value: +" + gem.getValue());
+    System.out.println(gem.getGemType() + " is added to the deposit. Value: " + gem.getValue()+  " By " + name);
   }
 
   public void waitingForGemDeposit()
@@ -46,7 +46,7 @@ public class Catalogue
 
   public void addToTreasureRoom(Gem gem)
   {
-    System.out.println("GemTransporter transported: " + gem.getGemType() + " Value: " + gem.getGemType());
+    System.out.println("GemTransporter transported: " + gem.getGemType() + " Value: " + gem.getValue() + " to treasure room");
   }
 
   public void partyOver()
@@ -56,7 +56,7 @@ public class Catalogue
 
   public void currentWealth()
   {
-    System.out.println("Accountants calculated: "+ TreasureRoom.getwealth() + " in treasureroom");
+    System.out.println("Accountants calculated: "+ TreasureRoom.getWealth() + " in treasureroom");
   }
 
 }

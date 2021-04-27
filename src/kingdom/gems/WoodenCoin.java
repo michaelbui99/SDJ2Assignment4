@@ -1,18 +1,18 @@
 package kingdom.gems;
 
-public class Jewel extends Gem
+public class WoodenCoin extends Gem
 {
-  public Jewel()
+  public WoodenCoin()
   {
   }
 
   @Override public int getValue()
   {
-    return 15;
+    return 1;
   }
 
   @Override public String getGemType()
   {
-    return "Jewel";
+    return "Not a gem... it is a piece of wood!!";
   }
 }

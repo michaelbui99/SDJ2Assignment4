@@ -6,7 +6,7 @@ public class GoldNugget extends Gem
   {
   }
 
-  @Override public double getValue()
+  @Override public int getValue()
   {
     return 50;
   }

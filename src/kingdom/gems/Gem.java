@@ -6,7 +6,7 @@ public abstract class Gem
   {
   }
 
-  public abstract double getValue();
+  public abstract int getValue();
 
   public abstract String getGemType();
 

@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface TreasureRoomDoor {
 
-    void acquireReadAccess(String actorName);
+    void acquireReadAccess(String actorName) throws InterruptedException;
 
-    void acquireWriteAccess(String actorName);
+    void acquireWriteAccess(String actorName) throws InterruptedException;
 
     void releaseReadAccess(String actorName);
 

@@ -12,7 +12,7 @@ public class TreasureRoom implements TreasureRoomDoor {
         gems = new ArrayList<>();
     }
 
-    public static double getwealth()
+    public static double getWealth()
     {
         double sum = 0;
         for (Gem gem : gems )
@@ -24,38 +24,51 @@ public class TreasureRoom implements TreasureRoomDoor {
 
     // access methods
 
-    public synchronized void acquireReadAccess(String actorName) {
+    public synchronized void acquireReadAccess(String actorName)
+        throws InterruptedException
+    {
         // note in the catalogue a person entered
     }
 
-    public synchronized void acquireWriteAccess(String actorName) {
+    public synchronized void acquireWriteAccess(String actorName)
+        throws InterruptedException
+    {
         // note in the catalogue a person entered
     }
 
-    public synchronized void releaseReadAccess(String actorName) {
-        // note in the catalogue a person left
+    public synchronized void releaseReadAccess(String actorName)
+    {
+       //note in the catalogue a person left
+        activeReaders--;
+        Catalogue.getInstance().outTreasureRoom(actorName);
+       notifyAll();
     }
 
-    public synchronized void releaseWriteAccess(String actorName) {
+    public synchronized void releaseWriteAccess(String actorName)
+    {
         // note in the catalogue a person left
     }
 
     // interact methods
 
-    public Gem retrieveValuable() {
+    public Gem retrieveValuable()
+    {
         Gem v = null;
-        if (gems.size() > 0) {
+        if (gems.size() > 0)
+        {
             v = gems.remove(0);
         }
         return v;
     }
 
-    public void addValuable(Gem v) {
+    public void addValuable(Gem v)
+    {
         gems.add(v);
     }
 
     @Override
-    public List<Gem> lookAtAllGems() {
+    public List<Gem> lookAtAllGems()
+    {
         return new ArrayList<Gem>(gems);
     }
 }

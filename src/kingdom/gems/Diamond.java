@@ -6,9 +6,9 @@ public class Diamond extends Gem
   {
   }
 
-  @Override public double getValue()
+  @Override public int getValue()
   {
-    return 10;
+    return 30;
   }
 
   @Override public String getGemType()

@@ -7,9 +7,9 @@ public class Ruby extends Gem
 
   }
 
-  @Override public double getValue()
+  @Override public int getValue()
   {
-    return 19.5;
+    return 25;
   }
 
   @Override public String getGemType()

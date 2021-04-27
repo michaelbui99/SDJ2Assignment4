@@ -14,6 +14,7 @@ public class GemDeposit<Gem> implements BlockingQueueKingdom<Gem>
  {
   while (isFull())
   {
+   Catalogue.getInstance().waiting("Mine worker");
    wait();
   }
   gemListADT.add(gem);
@@ -36,6 +37,6 @@ public class GemDeposit<Gem> implements BlockingQueueKingdom<Gem>
 
  @Override public boolean isFull()
  {
-  return false;
+  return capacity == gemListADT.size();
  }
 }

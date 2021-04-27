@@ -7,6 +7,9 @@ import java.util.List;
 
 public class TreasureRoom implements TreasureRoomDoor {
     private static List<Gem> gems;
+    private int waitingWriters =0 ;
+    private boolean activeWriter = false;
+    private int activeReaders = 0;
 
     public TreasureRoom() {
         gems = new ArrayList<>();
@@ -28,12 +31,28 @@ public class TreasureRoom implements TreasureRoomDoor {
         throws InterruptedException
     {
         // note in the catalogue a person entered
+        while (waitingWriters > 0 || activeWriter)
+        {
+          wait();
+        }
+        activeReaders++;
+        Catalogue.getInstance().inTreasureRoom(actorName);
+        notifyAll();
     }
 
     public synchronized void acquireWriteAccess(String actorName)
         throws InterruptedException
     {
         // note in the catalogue a person entered
+        waitingWriters++;
+        while(activeWriter || activeReaders > 0)
+        {
+         wait();
+        }
+        waitingWriters--;
+        activeWriter = true;
+        Catalogue.getInstance().inTreasureRoom(actorName);
+        notifyAll();
     }
 
     public synchronized void releaseReadAccess(String actorName)
@@ -47,6 +66,9 @@ public class TreasureRoom implements TreasureRoomDoor {
     public synchronized void releaseWriteAccess(String actorName)
     {
         // note in the catalogue a person left
+        activeWriter = false;
+        Catalogue.getInstance().outTreasureRoom(actorName);
+        notifyAll();
     }
 
     // interact methods

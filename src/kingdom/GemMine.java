@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//Multiton
 public class GemMine
 {
   private static Map<String, Gem> allInstances = new HashMap<>();
@@ -40,6 +40,10 @@ public class GemMine
               break;
             case "Ruby":
               instance = new Ruby();
+              break;
+            case "WoodenCoin":
+              instance = new WoodenCoin();
+              break;
             default:
               throw new IllegalArgumentException("No such valuable exists, trash!");
           }

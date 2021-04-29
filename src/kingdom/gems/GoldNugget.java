@@ -1,6 +1,6 @@
 package kingdom.gems;
 
-public class GoldNugget extends Gem
+public class GoldNugget implements Gem
 {
   public GoldNugget()
   {

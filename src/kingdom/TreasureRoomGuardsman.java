@@ -8,6 +8,9 @@ import java.util.List;
 
 public class TreasureRoomGuardsman implements TreasureRoomDoor
 {
+  private int waitingWriters =0 ;
+  private boolean activeWriter = false;
+  private int activeReaders = 0;
 
   private TreasureRoom treasureRoom;
 
@@ -16,32 +19,48 @@ public class TreasureRoomGuardsman implements TreasureRoomDoor
     this.treasureRoom = treasureRoom;
   }
 
-  @Override public void acquireReadAccess(String actorName)
+  @Override public synchronized void acquireReadAccess(String actorName)
       throws InterruptedException
   {
-    if (actorName.equals("Accountant"))
+    // note in the catalogue a person entered
+    while (waitingWriters > 0 || activeWriter)
     {
-      treasureRoom.acquireReadAccess(actorName);
+      wait();
+    }
+    treasureRoom.acquireReadAccess(actorName);
+    activeReaders++;
+    notifyAll();
+  }
+
+  @Override public synchronized void acquireWriteAccess(String actorName)
+      throws InterruptedException
+  {
+    waitingWriters++;
+    while(activeWriter || activeReaders > 0)
+    {
+      wait();
+    }
+    treasureRoom.acquireWriteAccess(actorName);
+    waitingWriters--;
+    activeWriter = true;
+    notifyAll();
+  }
+
+  @Override public synchronized void releaseReadAccess(String actorName)
+  {
+    activeReaders--;
+    treasureRoom.releaseReadAccess(actorName);
+    if (activeReaders == 0)
+    {
+      notifyAll();
     }
   }
 
-  @Override public void acquireWriteAccess(String actorName)
-      throws InterruptedException
+  @Override public synchronized void releaseWriteAccess(String actorName)
   {
-    if (actorName.equals("King") || actorName.equals("GemTransporter"))
-    {
-      treasureRoom.acquireWriteAccess(actorName);
-    }
-  }
-
-  @Override public  void releaseReadAccess(String actorName)
-  {
-      releaseReadAccess(actorName);
-  }
-
-  @Override public void releaseWriteAccess(String actorName)
-  {
-      releaseWriteAccess(actorName);
+    activeWriter = false;
+    treasureRoom.releaseWriteAccess(actorName);
+    notifyAll();
   }
 
   @Override public Gem retrieveValuable()

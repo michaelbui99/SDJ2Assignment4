@@ -1,6 +1,6 @@
 package kingdom.gems;
 
-public class Diamond extends Gem
+public class Diamond implements Gem
 {
   public Diamond()
   {

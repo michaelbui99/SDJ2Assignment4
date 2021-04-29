@@ -16,6 +16,8 @@ public class KingdomStart
     GemMineWorker gemMineWorker1 = new GemMineWorker("Miner 1", deposit);
     GemMineWorker gemMineWorker2 = new GemMineWorker("Miner 2" ,deposit);
 
+    King king = new King("King", treasureRoomDoor);
+
     Thread t1 = new Thread(gemTransporter1, "TransporterThread1");
     Thread t2 = new Thread(gemTransporter2, "TransporterThread2");
 
@@ -23,11 +25,13 @@ public class KingdomStart
     Thread t4 = new Thread(gemMineWorker2, "WorkerThread2");
 
     Thread t5 = new Thread(accountant, "AccountantThread");
+    Thread t6 = new Thread(king, "KingThread");
 
     t1.start();
     t2.start();
     t3.start();
     t4.start();
     t5.start();
+    t6.start();
   }
 }

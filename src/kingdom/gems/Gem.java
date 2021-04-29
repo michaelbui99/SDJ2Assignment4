@@ -1,13 +1,10 @@
 package kingdom.gems;
 
-public abstract class Gem
+public interface Gem
 {
-  public Gem()
-  {
-  }
 
-  public abstract int getValue();
+  int getValue();
 
-  public abstract String getGemType();
+  String getGemType();
 
 }

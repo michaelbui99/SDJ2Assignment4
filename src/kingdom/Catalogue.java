@@ -59,9 +59,13 @@ public class Catalogue
     System.out.println("Kings holds a party");
   }
 
-  public void addToTreasureRoom(Gem gem)
+  public void addToTreasureRoom(String actorName,Gem gem)
   {
-    System.out.println("GemTransporter transported: " + gem.getGemType() + " Value: " + gem.getValue() + " to treasure room");
+    System.out.println( actorName + " added: " + gem.getGemType() + " Value: " + gem.getValue() + " to treasure room. Treasure room currently has: " + TreasureRoom.getWealth());
+  }
+  public void removeFromTreasureRoom(String actorName,Gem gem)
+  {
+    System.out.println( actorName + " removed: " + gem.getGemType() + " Value: " + gem.getValue() + " to treasure room");
   }
 
   public void partyOver()
@@ -87,5 +91,14 @@ public class Catalogue
   public void outTreasureRoom(String name)
   {
     System.out.println(name + " has left the treasure room");
+  }
+
+  public void kingPlanningAParty(int value)
+  {
+    System.out.println("The king is planning a party and he needs: " + value + " Treasure room currently has: " + TreasureRoom.getWealth());
+  }
+  public void partyCanceled()
+  {
+    System.out.println("The king has canceled the party");
   }
 }

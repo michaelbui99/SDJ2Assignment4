@@ -1,6 +1,6 @@
 package kingdom.gems;
 
-public class WoodenCoin extends Gem
+public class WoodenCoin implements Gem
 {
   public WoodenCoin()
   {

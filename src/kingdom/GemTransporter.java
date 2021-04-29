@@ -49,14 +49,14 @@ public class GemTransporter implements Runnable
 
         while(!gems.isEmpty())
         {
+          treasureRoomDoor.acquireWriteAccess("GemTransporter");
           for (Gem gem : gems)
           {
-          treasureRoomDoor.acquireWriteAccess("GemTransporter");
           treasureRoomDoor.addValuable(gem);
-          Catalogue.getInstance().addToTreasureRoom(gem);
-          gems.remove(gem);
-          treasureRoomDoor.releaseWriteAccess("GemTransporter");
+          Catalogue.getInstance().addToTreasureRoom("Gem Transporter",gem);
           }
+          gems.clear();
+          treasureRoomDoor.releaseWriteAccess("GemTransporter");
         }
       }
         catch (InterruptedException e)

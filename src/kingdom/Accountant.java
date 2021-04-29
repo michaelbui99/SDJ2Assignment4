@@ -17,7 +17,7 @@ public class Accountant implements Runnable
       try
       {
         treasureRoomDoor.acquireReadAccess("Accountant");
-        double wealth = TreasureRoom.getWealth();
+//        double wealth = TreasureRoom.getWealth();
         Thread.sleep(2000);
         Catalogue.getInstance().currentWealth();
         treasureRoomDoor.releaseReadAccess("Accountant");

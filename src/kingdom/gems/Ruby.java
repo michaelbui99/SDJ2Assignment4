@@ -1,6 +1,6 @@
 package kingdom.gems;
 
-public class Ruby extends Gem
+public class Ruby implements Gem
 {
   public Ruby()
   {

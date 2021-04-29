@@ -72,7 +72,7 @@ public class King implements Runnable
 
           if (getTotalGemValue() >= targetValue)
           {
-            
+
             treasureRoomDoor.releaseWriteAccess("King");
             Catalogue.getInstance().partyTime();
             Catalogue.getInstance().partyOver();

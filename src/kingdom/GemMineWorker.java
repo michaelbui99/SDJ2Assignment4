@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class GemMineWorker implements Runnable
 {
-  private GemDeposit<Gem> gemDeposit;
+  private BlockingQueueKingdom<Gem> gemDeposit;
   private String[] gems = {"Diamond", "GoldNugget", "Jewel", "Ruby", "WoodenCoin"};
   private String name;
 
